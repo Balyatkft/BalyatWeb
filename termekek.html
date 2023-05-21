@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Termékek</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: rgb(211, 211, 211);
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid white;
+    }
+
+    .logo {
+      margin-left: auto;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    nav {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 10px;
+      position: relative;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    p {
+      font-size: larger;
+      padding: 15px;
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      word-wrap: break-word;
+      text-align: center;
+      background-color: rgb(211, 211, 211);
+      position: relative;
+      border: 2px solid #333;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      text-align: center;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    nav ul li:after {
+      content: "";
+      position: absolute;
+      bottom: -2px; /* A csík pozíciója a menüpont alatt */
+      left: 0;
+      width: 100%;
+      height: 2px; /* A csík magassága */
+      background-color: white; /* A csík színe */
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #ffffff;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+    
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .image-popup {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-color: #ccc;
+      margin-left: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      z-index: 9999;
+    }
+
+    .modal img {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+
+    .modal-prev,
+  .modal-next {
+    font-size: 32px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    cursor: pointer;
+  }
+  .modal-prev {
+    left: 10px;
+  }
+  .modal-next {
+    right: 10px;
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Balyát WebShop</h1>
+    <img src="Képek/Logó.png" alt="Logo" class="logo">
+    <h1>Termékek</h1> 
+  </header>
+  <nav>
+    <ul>
+      <li><a href="index.html">Főoldal</a></li>
+      <li><a href="termekek.html">Termékek</a></li>
+      <li><a href="register.html">Regisztráció</a></li>
+      <li><a href="#">Fórum</a></li>
+      <li><a href="kapcs.html">Kapcsolat</a></li>
+    </ul>
+  </nav>
+  <table>
+    <tr>
+      <th>Név</th>
+      <th>Leírás</th>
+      <th>Ár</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td>Fekete poló</td>
+      <td>Fekete Balyátos poló, választható mintával, Egyszer nyomtatott</td>
+      <td>4300 Ft</td>
+      <td>
+        <span class="image-popup" data-image="Képek/termékek/BLACK BACK.png"></span>
+        <span class="image-popup" data-image="Képek/termékek/BLACK BACK.png"></span>
+        <span class="image-popup" data-image="Képek/termékek/BLACK BACK.png"></span>
+        <span class="image-popup" data-image="Képek/termékek/BLACK BACK.png"></span>
+        <span class="image-popup" data-image="Képek/termékek/BLACK BACK.png"></span>
+        <span class="image-popup" data-image="Képek/termékek/BLACK BACK.png"></span>
+      </td>
+    </tr>
+    <tr>
+      <td>Fehér poló</td>
+      <td>Fehér Balyátos poló, választható mintával, Egyszer nyomtatott</td>
+      <td>3800 Ft</td>
+      <td>
+        <span class="image-popup" data-image="Képek/Termékek/cream Front.png"></span>
+        <span class="image-popup" data-image="Képek/Termékek/cream Front.png"></span>
+        <span class="image-popup" data-image="Képek/Termékek/cream Front.png"></span>
+        <span class="image-popup" data-image="Képek/Termékek/cream Front.png"></span>
+        <span class="image-popup" data-image="Képek/Termékek/cream Front.png"></span>
+        <span class="image-popup" data-image="Képek/Termékek/cream Front.png"></span>
+      </td>
+    </tr>
+    <tr>
+      <td>Fekete poló</td>
+      <td>Fekete Balyátos poló, választható mintával, Dubla nyomtatott</td>
+      <td>4800 Ft</td>
+      <td>
+        <span class="image-popup" data-image="Képek/termékek/BLACK BACK.png"></span>
+        <span class="image-popup" data-image="Képek/termékek/BLACK BACK.png"></span>
+        <span class="image-popup" data-image="Képek/termékek/BLACK BACK.png"></span>
+        <span class="image-popup" data-image="Képek/termékek/BLACK BACK.png"></span>
+        <span class="image-popup" data-image="Képek/termékek/BLACK BACK.png"></span>
+        <span class="image-popup" data-image="Képek/termékek/BLACK BACK.png"></span>
+      </td>
+    </tr>
+    <!-- További termékek... -->
+  </table>
+
+  <div class="modal" id="modal">
+    <span class="modal-close">&times;</span>
+    <span class="modal-prev">‹</span>
+    <img id="modal-image" src="" alt="Kép">
+    <span class="modal-next">›</span>
+  </div>
+
+  <script>
+    var imagePopupElements = document.getElementsByClassName("image-popup");
+    var modal = document.getElementById("modal");
+    var modalImage = document.getElementById("modal-image");
+    var modalClose = document.getElementsByClassName("modal-close")[0];
+    var modalPrev = document.getElementsByClassName("modal-prev")[0];
+    var modalNext = document.getElementsByClassName("modal-next")[0];
+    var imageUrls = [];
+    var currentImageIndex = 0;
+
+    for (var i = 0; i < imagePopupElements.length; i++) {
+      var imageUrl = imagePopupElements[i].getAttribute("data-image");
+      imageUrls.push(imageUrl);
+
+      imagePopupElements[i].addEventListener("click", function() {
+        var imageUrl = this.getAttribute("data-image");
+        currentImageIndex = imageUrls.indexOf(imageUrl);
+        showImage(imageUrl);
+        modal.style.display = "block";
+      });
+    }
+
+    modalClose.addEventListener("click", function() {
+      modal.style.display = "none";
+    });
+
+    modalPrev.addEventListener("click", function() {
+      currentImageIndex = (currentImageIndex - 1 + imageUrls.length) % imageUrls.length;
+      var imageUrl = imageUrls[currentImageIndex];
+      showImage(imageUrl);
+    });
+
+    modalNext.addEventListener("click", function() {
+      currentImageIndex = (currentImageIndex + 1) % imageUrls.length;
+      var imageUrl = imageUrls[currentImageIndex];
+      showImage(imageUrl);
+    });
+
+    function showImage(imageUrl) {
+      modalImage.src = imageUrl;
+    }
+  </script>
+</body>
+</html>

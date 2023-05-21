@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Regisztráció</title>
+  <style>
+      body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: rgb(211, 211, 211);
+    }
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid white;
+    }
+
+    .logo {
+      margin-left: auto;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+    h1 {
+      text-align: center;
+    }
+    nav {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 10px;
+      position: relative;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    p {
+      font-size: larger;
+      padding: 15px;
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      word-wrap: break-word;
+      text-align: center;
+      background-color: rgb(211, 211, 211);
+      position: relative;
+      border: 2px solid #333;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      text-align: center;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    nav ul li:after {
+    content: "";
+    position: absolute;
+    bottom: -2px; /* A csík pozíciója a menüpont alatt */
+    left: 0;
+    width: 100%;
+    height: 2px; /* A csík magassága */
+    background-color: white; /* A csík színe */
+  }
+    form {
+      max-width: 300px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      text-align: left;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Balyát WebShop</h1>
+    <img src="Képek/Balyát/Logó.png" alt="Logo" class="logo">
+  </header>
+  <nav>
+    <ul>
+      <li><a href="index.html">Főoldal</a></li>
+      <li><a href="termekek.html">Termékek</a></li>
+      <li><a href="register.html">Regisztráció</a></li>
+      <li><a href="#">Fórum</a></li>
+      <li><a href="kapcs.html">Kapcsolat</a></li>
+    </ul>
+  </nav>
+  <h1>Regisztráció</h1>
+
+  <form id="registration-form">
+    <label for="username">Felhasználónév:</label>
+    <input type="text" id="username" name="username" required><br>
+
+    <label for="password">Jelszó:</label>
+    <input type="password" id="password" name="password" required><br>
+
+    <input type="submit" value="Regisztráció">
+  </form>
+
+  <script>
+    // Statikus fájlok szolgáltatása (pl. register.html)
+app.use(express.static('public'));
+
+    $(document).ready(function() {
+      // Regisztrációs űrlap eseménykezelő
+      $('#registration-form').submit(function(event) {
+        event.preventDefault(); // Az űrlap beküldésének megakadályozása
+
+        var username = $('#username').val();
+        var password = $('#password').val();
+
+        var data = {
+          username: username,
+          password: password
+        };
+
+        // Adatok elküldése a szerveroldali alkalmazásnak
+        $.ajax({
+          url: '/registration-endpoint',
+          type: 'POST',
+          contentType: 'application/json',
+          data: JSON.stringify(data),
+          success: function(response) {
+            alert('Sikeres regisztráció!');
+            // További műveletek, pl. átirányítás a bejelentkezéshez
+          },
+          error: function(error) {
+            alert('Hiba történt a regisztráció során.');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

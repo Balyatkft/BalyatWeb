@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fizetési ablak</title>
+  <script>
+    function fizetestFeldolgoz() {
+      var nev = document.getElementById("nev").value;
+      var kartyaszam = document.getElementById("kartyaszam").value;
+      var lejaratiido = document.getElementById("lejaratiido").value;
+      var biztonsagi = document.getElementById("biztonsagi").value;
+
+      // Adatok ellenőrzése
+      if (nev === "" || kartyaszam === "" || lejaratiido === "" || biztonsagi === "") {
+        alert("Kérlek, töltsd ki az összes mezőt!");
+        return;
+      }
+
+      // Adatok feldolgozása és fizetési műveletek végrehajtása
+      // Itt lehetne hozzáadni a szükséges szerveroldali kommunikációt és tranzakciókat
+
+      alert("A fizetés sikeresen végrehajtva!");
+
+      // Fizetés után átirányítás vagy további műveletek végrehajtása
+    }
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="button"] {
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input[type="button"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Fizetés</h1>
+  
+  <form>
+    <label for="nev">Név:</label>
+    <input type="text" id="nev" name="nev" required><br><br>
+    
+    <label for="kartyaszam">Kártyaszám:</label>
+    <input type="text" id="kartyaszam" name="kartyaszam" required><br><br>
+    
+    <label for="lejaratiido">Lejárati idő:</label>
+    <input type="text" id="lejaratiido" name="lejaratiido" required><br><br>
+    
+    <label for="biztonsagi">Biztonsági kód:</label>
+    <input type="text" id="biztonsagi" name="biztonsagi" required><br><br>
+    
+    <input type="button" value="Fizetés" onclick="fizetestFeldolgoz()">
+  </form>
+</body>
+</html>
